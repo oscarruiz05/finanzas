@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('cuentas', function (Blueprint $table) {
             $table->id();
-            $table->string('nommbre');
+            $table->string('nombre');
             $table->text('descripcion')->nullable();
             $table->boolean('estado')->default(true);
             $table->timestamps();
