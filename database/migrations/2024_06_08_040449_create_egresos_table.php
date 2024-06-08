@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('egresos', function (Blueprint $table) {
             $table->id();
+            $table->string('descripcion');
+            $table->foreignId('cuenta_id')->constrained('cuentas')->onUpdate('cascade');
+            $table->bigInteger('total');
+            $table->date('fecha');
             $table->timestamps();
         });
     }

@@ -11,14 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ingresos', function (Blueprint $table) {
+        Schema::create('cuentas', function (Blueprint $table) {
             $table->id();
-            $table->string('descripcion');
-            $table->foreignId('cuenta_id')->constrained('cuentas')->onUpdate('cascade');
-            $table->bigInteger('total');
-            $table->boolean('depositado');
-            $table->boolean('ingreso_fijo');
-            $table->date('fecha');
+            $table->string('nommbre');
+            $table->text('descripcion')->nullable();
+            $table->boolean('estado')->default(true);
             $table->timestamps();
         });
     }
@@ -28,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ingresos');
+        Schema::dropIfExists('cuentas');
     }
 };
